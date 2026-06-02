@@ -1,0 +1,39 @@
+-netsh interface ip show config
+
+-netsh advfirewall show allprofiles
+
+-netsh advfirewall set allprofiles state on
+
+-netsh advfirewall set allprofiles firewallpolicy blockinboundalways,allowoutbound
+
+-netsh advfirewall firewall add rule name="Bloqueo SMB" dir=in action=block protocol=TCP localport=445
+
+-netsh advfirewall firewall add rule name="Bloquear Ping" protocol=icmpv4 dir=in action=block
+
+-netsh advfirewall firewall set rule group="Network Discovery" new enable=No
+
+-netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=No 
+
+-netsh wlan show profiles
+
+-netsh wlan delete profile name="WiFi_Publico"
+
+-netsh interface set interface "Wi-Fi" admin=disable
+
+-netsh advfirewall set currentprofile logging filename "C:\firewall.log"
+
+-netsh advfirewall set currentprofile logging maxfilesize 4096
+
+-netsh advfirewall firewall show rule name=all
+
+-netsh advfirewall show allprofiles
+
+-netsh interface ipv4 show excludedportrange protocol=tcp
+
+-ping IP_DEL_EQUIPO
+
+-nmap IP_DEL_EQUIPO
+
+-ping google.com
+
+-netsh advfirewall export "C:\firewall_config.wfw"
